@@ -1,7 +1,8 @@
 plugins {
     id 'com.android.application'
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.21"
     // Add the Google services Gradle plugin
-    id 'com.google.gms.google-services'
+//    id 'com.google.gms.google-services'
     // Add the Crashlytics Gradle plugin
 }
 apply plugin: 'kotlin-android'
@@ -42,10 +43,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
-    }
     flavorDimensions += 'channel'
     flavorDimensions += "version"
     productFlavors {
@@ -77,12 +74,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "21"
     }
 
     repositories {
@@ -99,6 +96,10 @@ android {
         kotlinCompilerExtensionVersion '1.5.0'
     }
     namespace 'info.free.scp'
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
 }
 
 dependencies {

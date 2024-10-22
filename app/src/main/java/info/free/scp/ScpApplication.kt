@@ -25,8 +25,8 @@ class ScpApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
 
-        database =
-            Firebase.database(FIREBASE_URL).reference
+//        database =
+//            Firebase.database(FIREBASE_URL).reference
 
         context = applicationContext
 
@@ -74,11 +74,11 @@ class ScpApplication : MultiDexApplication() {
 
     companion object {
         lateinit var context: Context
-        lateinit var database: DatabaseReference
+//        lateinit var database: DatabaseReference
         var isDebug = true
         var currentActivity: BaseActivity? = null
         val downloadManager by lazy {
-            context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+            context.getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         }
     }
 }
